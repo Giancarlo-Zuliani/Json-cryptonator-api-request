@@ -12,9 +12,29 @@ var requestOptions = {
   redirect: 'follow'
 };
 
+var head = new Headers();
+head.append("X-Auth-Token", "3a0a9db850de42ffb3e64cd9d602c371");
 
+var request = {
+  method: 'GET',
+  headers: head,
+  redirect: 'follow'
+};
+
+var capocannoniere;
 
 document.querySelector('button').addEventListener('click',function(){
+
+  fetch("http://api.football-data.org/v2/competitions/SA/scorers", request)
+  .then(response => response.text())
+  .then(result =>{
+  capocannoniere = JSON.parse(result)
+  console.log(capocannoniere)
+  document.getElementById('bomber').innerHTML =capocannoniere.scorers[0].player.name + " é il capocannoniere della serie A";
+})
+
+  .catch(error => console.log('error', error));
+
   fetch("https://api.cryptonator.com/api/ticker/btc-usd", requestOptions)
   .then(response => response.text())
   .then(result => {
