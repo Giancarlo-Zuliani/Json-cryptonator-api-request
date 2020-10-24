@@ -1,0 +1,16 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  text-align: center;
+}
+
+button{
+  margin:50px;
+  padding:5px 25px;
+  background-color: red;
+}
+
+h1{
+  margin:50px;
+}
